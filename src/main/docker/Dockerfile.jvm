@@ -1,0 +1,11 @@
+FROM adoptopenjdk/openjdk11:jre-11.0.9.1_1-alpine@sha256:c7ecb2bdde17f107efa4b57957d3674a3a1fd83e564c614b4db362f445e8cfa0
+RUN mkdir /opt/app
+RUN mkdir /opt/app/lib
+WORKDIR /opt/app
+COPY target/lib/ lib/
+COPY target/service-runner.jar .
+ENTRYPOINT [ \
+  "java", \
+  "-jar", \
+  "service-runner.jar" \
+]

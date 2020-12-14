@@ -1,0 +1,7 @@
+quarkus:
+  datasource:
+    db-kind: postgresql
+    username: ${DB_USER:hello_user}
+    password: ${DB_PASSWORD:hello_password}
+    jdbc:
+      url: jdbc:${quarkus.datasource.db-kind}://${DB_HOST:localhost:15432}/${DB_NAME:hello}
